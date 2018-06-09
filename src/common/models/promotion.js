@@ -18,5 +18,8 @@ module.exports = function(Promotion) {
         } next();
     });
 
-
+    // method which lists all promo codes
+    Promotion.getAllPromoCodes = function(cb) {
+        Promotion.find({}, cb);
+    };
 };

@@ -158,12 +158,15 @@ module.exports = {
             }
         };
 
-        db.createModel(promotionSchema.name, promotionSchema.properties, promotionSchema.options);
-
-        db.automigrate(function () {
-            db.discoverModelProperties('promotions', function (err, props) {
-                console.log(props);
-            });
+        db.discoverModelProperties('promotions', function (err, props) {
+            if (Object.keys(props).length === 0) {
+                db.createModel(promotionSchema.name, promotionSchema.properties, promotionSchema.options);
+                db.automigrate(function () {
+                    db.discoverModelProperties('promotions', function (err, props) {
+                        console.log(props);
+                    });
+                });
+            }
         });
     }
 };

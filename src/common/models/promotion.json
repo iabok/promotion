@@ -156,5 +156,65 @@
                 "nullable": "YES"
             }
         }
+    },
+    "methods": {
+        "setPromoRadius": {
+          "accepts": [
+            {
+              "arg": "code",
+              "type": "string",
+              "http": {
+                "source": "query"
+              }
+            }
+          ],
+          "returns": {
+            "arg": "success",
+            "type": "boolean"
+          },
+          "http": {
+              "path": "/setPromoRadius",
+              "verb": "patch"
+          }
+        },
+        "deactivate": {
+          "accepts": [
+            {
+              "arg": "code",
+              "type": "string",
+              "http": {
+                "source": "query"
+              }
+            }
+          ],
+          "returns": {
+            "arg": "success",
+            "type": "boolean"
+          },
+          "http": {
+              "path": "/deactivate",
+              "verb": "patch"
+          }
+        },
+        "getActiveCodes": {
+          "returns": {
+            "arg": "data",
+            "type": "json"
+          },
+          "http": {
+              "path": "/getActive",
+              "verb": "get"
+          }
+        },
+        "getAllPromoCodes": {
+          "returns": {
+            "arg": "data",
+            "type": "json"
+          },
+          "http": {
+              "path": "/getAll",
+              "verb": "get"
+          }
+        }
     }
 }
