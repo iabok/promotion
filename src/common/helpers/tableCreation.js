@@ -17,11 +17,11 @@ module.exports = {
             "properties": {
                 "id": {
                     "type": "Number",
-                    "required": true,
                     "length": null,
                     "precision": null,
                     "scale": 0,
-                    "id": 1,
+                    "id": true,
+                    "generated": true,
                     "postgresql": {
                         "columnName": "id",
                         "dataType": "integer",
