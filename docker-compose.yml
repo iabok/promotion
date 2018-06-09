@@ -1,0 +1,33 @@
+version: '3'
+services:
+    api:
+        build:
+          context: .
+        container_name: api
+        restart: always
+        volumes:
+          - ./src:/root
+        ports:
+          - 3000:3000
+        links:
+            - db:db
+    db:
+        restart: always
+        container_name: db
+        image: postgres:latest
+        volumes:
+          - data:/var/lib/postgresql
+          - ./postgres/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+          - ./backups/postgresql:/backup
+        env_file:
+          - env
+        expose:
+          - "5432"
+    data:
+        restart: always
+        image: alpine
+        volumes:
+          - data:/var/lib/postgresql
+        command: "true"
+volumes:
+    data:

@@ -1,0 +1,11 @@
+{
+  "db": {
+    "host": "db",
+    "port": 5432,
+    "database": "promo_api",
+    "password": "q1w2e3r4",
+    "name": "db",
+    "user": "promo_api",
+    "connector": "postgresql"
+  }
+}
