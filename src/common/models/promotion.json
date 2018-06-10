@@ -9,11 +9,7 @@
         }
     },
     "scope": {
-        "order": "code",
-        "where": {
-            "expired": false,
-            "activated":true
-        }
+        "order": "code"
     },
     "properties": {
         "id": {
@@ -85,7 +81,7 @@
             "scale": 0,
             "postgresql": {
                 "columnName": "radius",
-                "dataType": "integer",
+                "dataType": "numeric",
                 "dataLength": null,
                 "dataPrecision": null,
                 "dataScale": 0,
@@ -159,62 +155,100 @@
     },
     "methods": {
         "setPromoRadius": {
-          "accepts": [
-            {
-              "arg": "code",
-              "type": "string",
-              "http": {
-                "source": "query"
-              }
+            "accepts": [
+                {
+                    "arg": "data",
+                    "type": "object",
+                    "http": {
+                        "source": "query"
+                    }
+                }
+            ],
+            "returns": {
+                "arg": "success",
+                "type": "boolean"
+            },
+            "http": {
+                "path": "/setPromoRadius",
+                "verb": "PUT"
             }
-          ],
-          "returns": {
-            "arg": "success",
-            "type": "boolean"
-          },
-          "http": {
-              "path": "/setPromoRadius",
-              "verb": "patch"
-          }
         },
-        "deactivate": {
-          "accepts": [
-            {
-              "arg": "code",
-              "type": "string",
-              "http": {
-                "source": "query"
-              }
+        "activate": {
+            "accepts": [
+                {
+                    "arg": "data",
+                    "type": "object",
+                    "http": {
+                        "source": "query"
+                    }
+                }
+            ],
+            "returns": {
+                "arg": "success",
+                "type": "boolean"
+            },
+            "http": {
+                "path": "/deactivate",
+                "verb": "PUT"
             }
-          ],
-          "returns": {
-            "arg": "success",
-            "type": "boolean"
-          },
-          "http": {
-              "path": "/deactivate",
-              "verb": "patch"
-          }
+        },
+        "expire": {
+            "accepts": [
+                {
+                    "arg": "data",
+                    "type": "object",
+                    "http": {
+                        "source": "query"
+                    }
+                }
+            ],
+            "returns": {
+                "arg": "success",
+                "type": "boolean"
+            },
+            "http": {
+                "path": "/activate",
+                "verb": "PUT"
+            }
         },
         "getActiveCodes": {
-          "returns": {
-            "arg": "data",
-            "type": "json"
-          },
-          "http": {
-              "path": "/getActive",
-              "verb": "get"
-          }
+            "returns": {
+                "arg": "data",
+                "type": "json"
+            },
+            "http": {
+                "path": "/getActive",
+                "verb": "get"
+            }
         },
         "getAllPromoCodes": {
-          "returns": {
-            "arg": "data",
-            "type": "json"
-          },
-          "http": {
-              "path": "/getAll",
-              "verb": "get"
-          }
+            "returns": {
+                "arg": "data",
+                "type": "json"
+            },
+            "http": {
+                "path": "/getAll",
+                "verb": "get"
+            }
+        },
+        "validatePromoCode": {
+            "accepts": [
+                {
+                    "arg": "data",
+                    "type": "object",
+                    "http": {
+                        "source": "query"
+                    }
+                }
+            ],
+            "returns": {
+                "arg": "data",
+                "type": "json"
+            },
+            "http": {
+                "path": "/validate",
+                "verb": "get"
+            }
         }
     }
 }
