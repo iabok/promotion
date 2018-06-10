@@ -1,5 +1,4 @@
 'use strict';
-var casual = require('casual');
 var chai = require('chai');
 var expect = chai.expect;
 require('dotenv').load();
@@ -14,7 +13,7 @@ describe('/Promotions test suite', function () {
       'expired': false,
   };
 
-  describe('create test for generating new posts', function () {
+  describe('create test for generating new post promo code', function () {
     it('should generate new promo code', function(done) {
       api.post('/api/Promotions')
         .send(data)
