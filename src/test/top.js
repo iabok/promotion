@@ -14,6 +14,7 @@ describe('My Test Suite', function() {
   });
 
   importTest('GetAllCodes', './getAllCodes/test');  // For all promo codes
+  importTest('GenerateNewPromoCodes', './generatePromoCodes/test');  // For all promo codes
 
   after(function() {
     console.log('after all tests');

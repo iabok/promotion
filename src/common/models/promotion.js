@@ -78,7 +78,7 @@ module.exports = function(Promotion) {
         });
     };
 
-    // Method to activated and deactivate promo code
+    // Method to retire a promo code
     Promotion.expire = function (data, cb){
         Promotion.find({
             where: {
@@ -99,7 +99,7 @@ module.exports = function(Promotion) {
         });
     };
 
-    // Method to retire a promo code
+    // Method to validate promo codes
     Promotion.validatePromoCode = function (data, cb){
         Promotion.find({
             where: {

@@ -1,5 +1,4 @@
 'use strict';
-var casual = require('casual');
 var chai = require('chai');
 var expect = chai.expect;
 var should = chai.should();
