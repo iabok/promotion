@@ -1,3 +1,4 @@
+'use strict';
 module.exports = {
     getRadius: function(points) {
         var latFrom = points.from.latitude;

@@ -8,11 +8,15 @@
   "scripts": {
     "lint": "eslint .",
     "start": "node .",
-    "posttest": "npm run lint && nsp check"
+    "posttest": "npm run lint && nsp check",
+    "test": "mocha --timeout 10000"
   },
   "dependencies": {
+    "casual": "^1.5.19",
     "compression": "^1.0.3",
     "cors": "^2.5.2",
+    "dotenv": "^5.0.1",
+    "expect": "^22.4.3",
     "helmet": "^3.10.0",
     "lodash": "^4.17.10",
     "loopback": "^3.19.0",
@@ -27,7 +31,12 @@
   "devDependencies": {
     "eslint": "^3.17.1",
     "eslint-config-loopback": "^8.0.0",
-    "nsp": "^2.1.0"
+    "nsp": "^2.1.0",
+    "babel": "^6.23.0",
+    "chai": "^4.1.2",
+    "mocha": "^5.1.1",
+    "nyc": "^11.7.1",
+    "supertest": "^3.0.0"
   },
   "repository": {
     "type": "",

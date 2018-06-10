@@ -1,3 +1,4 @@
+'use strict';
 var table = require('../helpers/tableCreation.js');
 var code = require('../helpers/generatePromoCode.js');
 var radius = require('../helpers/getRadius.js');

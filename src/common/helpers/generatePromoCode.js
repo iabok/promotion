@@ -1,3 +1,4 @@
+'use strict';
 module.exports = {
     generate: function () {
         return 'SB-' + this.getRandomInt();
