@@ -207,7 +207,7 @@
                 "type": "boolean"
             },
             "http": {
-                "path": "/activate",
+                "path": "/expire",
                 "verb": "PUT"
             }
         },

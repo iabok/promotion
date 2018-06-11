@@ -71,7 +71,6 @@ module.exports = function(Promotion) {
             } else {
                 var promoId = promotion[0].id;
                 return Promotion.updateAll({id: promoId}, {activated: data.activated}, function(err, res) {
-                    console.log(res);
                     cb(null, res.count > 0);
                 });
             }
