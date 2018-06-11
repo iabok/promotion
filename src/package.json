@@ -8,8 +8,9 @@
   "scripts": {
     "lint": "eslint .",
     "start": "node .",
-    "posttest": "npm run lint && nsp check",
-    "test": "mocha --timeout 10000"
+    "lintall": "npm run lint && nsp check",
+    "test": "mocha --timeout 10000",
+    "db": "node database/migrate.js"
   },
   "dependencies": {
     "casual": "^1.5.19",

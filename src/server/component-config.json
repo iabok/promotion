@@ -1,6 +1,10 @@
 {
   "loopback-component-explorer": {
-    "mountPath": "/explorer",
-    "generateOperationScopedModels": true
-  }
+        "mountPath": "/explorer",
+        "generateOperationScopedModels": true
+    },
+    "loopback-seed": {
+        "datasource": "db",
+        "fakerLocale": "fr"
+    }
 }
