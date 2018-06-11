@@ -6,7 +6,7 @@
 # Start application to build the api image
 $ docker-compose compose up
 
-# find the api container name from docker process running
+# find the api container name from docker processes running
 $ docker-compose ps
 
 # Install application dependencies
@@ -44,7 +44,7 @@ $ docker-compose logs container_name
 
 ```sh
 # Seed test data
-$ docker exec -ti api_container_name sh -ci 'npm seed'
+$ docker exec -ti api_container_name sh -ci 'npm db'
 
 # Or
 
@@ -56,7 +56,7 @@ $ node database/migrate.js
 
 ```
 
-# Running Unit Tests
+# Run Unit Tests
 
 ```sh
 # Run unit tests
