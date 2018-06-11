@@ -1,19 +1,46 @@
 version: '3'
 services:
     api:
-        build:
-          context: .
-        container_name: api
-        restart: always
+        image: apipromo:latest
+        depends_on:
+            - db
         volumes:
           - ./src:/root
-        ports:
-          - 3000:3000
         links:
             - db:db
+        ports:
+         - 3000:3000
+        environment:
+         - SERVICE_PORTS=3000
+        deploy:
+            replicas: 3
+            update_config:
+                parallelism: 5
+                delay: 10s
+            restart_policy:
+                condition: on-failure
+                max_attempts: 3
+                window: 120s
+        networks:
+          - webApi
+    proxy:
+        image: dockercloud/haproxy
+        depends_on:
+            - api
+            - db
+        environment:
+            - BALANCE=leastconn
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+        ports:
+            - 80:80
+        networks:
+            - webApi
+        deploy:
+            placement:
+                constraints: [node.role == manager]
     db:
         restart: always
-        container_name: db
         image: postgres:latest
         volumes:
           - data:/var/lib/postgresql
@@ -23,11 +50,19 @@ services:
           - env
         expose:
           - "5432"
+        networks:
+            - webApi
     data:
         restart: always
         image: alpine
         volumes:
           - data:/var/lib/postgresql
         command: "true"
+        networks:
+            - webApi
 volumes:
     data:
+
+networks:
+  webApi:
+    driver: overlay
