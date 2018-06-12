@@ -4,7 +4,7 @@
 
 ```sh
 # Start application to build the api image
-$ docker-compose compose up
+$ docker-compose up
 
 # find the api container name from docker processes running
 $ docker-compose ps
